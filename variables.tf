@@ -11,5 +11,5 @@ variable "cidr_block" {
 }
 
 variable "public_subnet_cidrs" {
-    default = list(string)
+    type = list(string)
 }
