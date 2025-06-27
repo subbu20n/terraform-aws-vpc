@@ -7,5 +7,5 @@ variable "environment" {
 }
 
 variable "cidr_block" {
-    default = ["0.0.0.0/0"]
+    default = ["10.0.0.0/16"]
 }
