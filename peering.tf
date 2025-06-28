@@ -24,7 +24,7 @@ resource "aws_vpc_peering_connection" "default" {
 }
 
 
-resource "aws_route" "public" {
+resource "aws_route" "public_peering" {
     count = var.is_peering_required? 1 : 0
     route_table_id = aws_route_table.public_id 
     destination_cidr_block = data.aws_vpc.default.cidr_block 
