@@ -56,3 +56,17 @@ variable "nat_gateway_tags" {
     default = {}
 }
 
+variable "public_route_table_tags" {
+    type = map(string)
+    default = {}
+}
+
+variable "private_route_table_tags" {
+    type = map(string)
+    default  = {}
+}
+
+variable "database_route_table_tags" {
+    type = map(string)
+    default = {}
+}
