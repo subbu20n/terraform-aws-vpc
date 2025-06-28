@@ -53,7 +53,7 @@ resource "aws_subnet" "private" {
         var.private_subnet_tags,
         local.common_tags,
         {
-            Name = "${var.project}-${var.environment}-private-${loacl.az_names[count.index]}"
+            Name = "${var.project}-${var.environment}-private-${local.az_names[count.index]}"
         }
     )
 }
