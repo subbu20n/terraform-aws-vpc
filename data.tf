@@ -15,6 +15,6 @@ data "aws_route_table" "main" {
 
     filter {
         name = "association.main"
-        values = "true"
+        values = ["true"]
     }
 }
