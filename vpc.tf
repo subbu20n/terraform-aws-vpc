@@ -97,6 +97,7 @@ resource "aws_nat_gateway" "main" {
             Name = "${var.project}-${var.environment}"
         }
     )
+    depends_on = [aws_internet_gateway.main]
 }
 
 resource "aws_route_table" "public" {
