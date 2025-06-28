@@ -124,7 +124,7 @@ resource "aws_route_table" "private" {
 }
 
 resource "aws_route_table" "database" {
-    vpc_id = aws_var.vpc.main.id 
+    vpc_id = aws_vpc.main.id 
 
     tags = merge(
         var.database_route_table_tags,
@@ -157,7 +157,7 @@ resource "aws_route" "database" {
 resource "aws_route_table_association" "public" {
     count = length(var.public_subnet_cidrs)
     subnet_id = aws_subnet.public[count.index].index
-    route_table_id = aws_route_table.publc.id 
+    route_table_id = aws_route_table.public.id 
 }
 
 resource "aws_route_table_association" "private" {
