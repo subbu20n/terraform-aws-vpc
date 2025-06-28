@@ -12,19 +12,19 @@ resource "aws_vpc" "main" {
 }
 
 resource "aws_internet_gateway" "main" {
-    vpc_id = aws_vpc.main.id 
-
+    vpc_id  = aws_vpc.amin.id 
+     
     tags = merge(
         local.common_tags,
         {
             Name = "${var.project}-${var.environment}"
         }
-    )
+    ) 
 }
 
 resource "aws_subnet" "public" {
     count = length(var.public_subnet_cidrs)
-    vpc_id = aws_vpc.main.id 
+    vpc_id  = aws_vpc.main.id 
     cidr_block = var.public_subnet_cidrs[count.index]
 
     availability_zone = local.az_names[count.index]
