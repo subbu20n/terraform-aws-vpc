@@ -1,6 +1,6 @@
 data "aws_availability_zones" "available" {
-  state = "available"
-}
+  state = "available" 
+} 
 
 data "aws_vpc" "default" {  #i am asking aws lo unde default vpc data adugutunna 
   default = true   
@@ -15,5 +15,5 @@ data "aws_route_table" "main" {  #main routetable fetch(search) cheyamani cheptu
   filter {
     name = "association.main" 
     values = ["true"]
-  } 
-}   
+  }  
+}    
