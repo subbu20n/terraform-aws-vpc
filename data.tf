@@ -9,11 +9,12 @@ data "aws_vpc" "default" {  #i am asking aws lo unde default vpc data adugutunna
   value = data.aws_availability_zones.available  
 }  */
 
-data "aws_route_table" "main" {  #main routetable fetch(search) cheyamani cheptunna 
-  vpc_id = data.aws_vpc.default.id  
+data "aws_route_table" "main" {  #main routetable (fetch) cheyamani cheptunna 
+  vpc_id = data.aws_vpc.default.id   # fetch go and get something 
 
   filter {
     name = "association.main" 
     values = ["true"]
   }  
 }    
+
