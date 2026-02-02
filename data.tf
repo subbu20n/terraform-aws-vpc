@@ -17,4 +17,4 @@ data "aws_route_table" "main" {  #main routetable (fetch) cheyamani cheptunna
     values = ["true"]
   }  
 }    
-
+ 
