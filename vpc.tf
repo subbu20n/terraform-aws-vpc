@@ -13,6 +13,7 @@ resource "aws_vpc" "main" {
   )
 }
 
+
 #IGW Internet Gateway 
 resource "aws_internet_gateway" "main" {
   vpc_id = aws_vpc.main.id 
@@ -43,6 +44,8 @@ resource "aws_subnet" "public" {
     }
   )
 } 
+
+
 
 resource "aws_subnet" "private" {
   count = length(var.private_subnet_cidrs) 
@@ -89,6 +92,7 @@ resource "aws_eip" "nat" {
   )
 }
 
+
 resource "aws_nat_gateway" "main" {
   allocation_id = aws_eip.nat.id 
   subnet_id = aws_subnet.public[0].id 
@@ -102,6 +106,7 @@ resource "aws_nat_gateway" "main" {
   )
   depends_on = [aws_internet_gateway.main]
 }
+ 
 
 resource "aws_route_table" "public" {
   vpc_id = aws_vpc.main.id 
@@ -174,3 +179,5 @@ resource "aws_route_table_association" "database" {
   subnet_id = aws_subnet.database[count.index].id 
   route_table_id = aws_route_table.database.id 
 }
+
+ 
