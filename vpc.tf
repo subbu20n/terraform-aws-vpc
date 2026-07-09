@@ -11,7 +11,7 @@ resource "aws_vpc" "main" {
       Name = "${var.project}-${var.environment}"
     }
   )
-}
+}     
 
 
 #IGW Internet Gateway 
